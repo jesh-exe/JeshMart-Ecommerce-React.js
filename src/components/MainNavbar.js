@@ -19,13 +19,12 @@ const MainNavbar = () => {
                     <div className="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul className="navbar-nav me-auto fs-5 mb-2 mb-lg-0">
                             <li className="nav-item mt-1">
-                            <NavLink to='/product' className='heads' >
-                                <a className="nav-link heads" aria-current="page" href="#">Products</a>
-                            </NavLink>
+                                <NavLink to='/product' className='heads' >
+                                    <a className="nav-link heads" aria-current="page" href="#">Products</a>
+                                </NavLink>
                             </li>
                         </ul>
                     </div>
-                    <button class="btn btn-outline-success" type="submit">Search</button>
                 </div>
             </nav>
         </div>
