@@ -1,0 +1,18 @@
+.image-container {
+    border-radius: 20px;
+    border: 2px solid white;
+    box-shadow: 4px 4px 5px rgba(245, 245, 245, 0.26);
+    transition: 0.3s all ease-in-out;
+    scale: 1;
+}
+
+.image-container:hover{
+    scale: 1.05;
+}
+
+
+
+/* .content-container{
+    border-radius: 20px;
+    border: 1px solid white;
+} */

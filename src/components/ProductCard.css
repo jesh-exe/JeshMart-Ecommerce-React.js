@@ -1,0 +1,19 @@
+
+.main-card-title{
+    text-align: center;
+    font-size: 23px;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    /* border-bottom: 1px solid grey; */
+}
+
+.main-card{
+    box-shadow: 0 6px 10px rgba(0,0,0,.08), 0 0 6px rgba(0,0,0,.05);
+    transition: transform 0.3s ease;
+}
+
+.main-card:hover{
+    transform: scale(1.04);
+    box-shadow: 0 10px 20px rgba(0,0,0,.12), 0 4px 8px rgba(0,0,0,.06);
+    /* box-shadow: 6px 6px 5px rgb(144, 144, 144); */
+}
