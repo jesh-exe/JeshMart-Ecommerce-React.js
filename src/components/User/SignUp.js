@@ -1,8 +1,7 @@
 import React from 'react'
-import User from '../../services/User';
+import UserService from '../../services/UserService';
 
 const SignUp = () => {
-
     const handleSignUp = (event) => {
         event.preventDefault();
         var signUpCreds = {
@@ -11,17 +10,18 @@ const SignUp = () => {
             password : event.target.password.value,
             address : event.target.address.value
         }
-        console.log(signUpCreds);
-        var obj = User;
-        var signedUpUser = obj.setUser(signUpCreds);
-        console.log(signedUpUser);
+        UserService.setUser(signUpCreds);
+        var obj = JSON.parse(localStorage.getItem("loggedInUser"));
+        console.log(obj);
+
     }
 
     return (
-        <>
+        <div className='container'>
             <h2 className='text-center p-2 mb-4 display-5'>Sign Up Form</h2>
-            <div className='h-100 d-flex align-items-center justify-content-center'>
-                <form className='w-50  bg-light border border-success p-3 rounded-4' onSubmit={handleSignUp}>
+            <div className='row'>
+                <div className='col-md-3'></div>
+                <form className='col-md-6 bg-light border border-success p-3 rounded-4' onSubmit={handleSignUp}>
                     <div className="form-group mt-3 mb-4">
                         <label className='ps-1 mb-2 lead' htmlFor="name">Full Name</label>
                         <input type="text" className="form-control w-100 lead" id="name" required placeholder="Enter Full Name" />
@@ -43,7 +43,7 @@ const SignUp = () => {
                     </p>
                 </form>
             </div>
-        </>
+        </div>
     )
 }
 

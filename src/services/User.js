@@ -1,27 +1,10 @@
-class User {
-    constructor() {
-        this.name = "";
-        this.email = "";
-        this.password = "";
-        this.address = "";
-        this.cartItems = [];
+class User{
+    constructor(name,email,password,address) {
+        this.name = name;
+        this.email = email;
+        this.password = password;
+        this.address = address;
     }
-
-    setUser(user) {
-        this.name = user.name;
-        this.email = user.email;
-        this.password = user.password;
-        this.address = user.address
-    }
-
-    getCartItems() {
-        return this.cartItems
-    }
-
-    setCartItem(item) {
-        this.cartItems.push(item);
-    }
-
 }
 
-export default new User();
+export default User;

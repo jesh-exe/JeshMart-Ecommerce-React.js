@@ -8,6 +8,7 @@ import ProductData from './components/ProductData';
 import ProductDetails from './components/ProductDetails';
 import Footer from './components/Footer';
 import SignUp from './components/User/SignUp';
+import Login from './components/User/Login';
 
 function App() {
   return (
@@ -21,7 +22,8 @@ function App() {
         <Route path='/product'>
           <Route path=':id' element = {<ProductDetails></ProductDetails>} ></Route>
         </Route>
-        <Route path='/login' element = {<SignUp></SignUp>}></Route>
+        <Route path='/signup' element = {<SignUp></SignUp>}></Route>
+        <Route path='/login' element = {<Login></Login>} ></Route>
       </Routes>
       <Footer></Footer>
     </div>

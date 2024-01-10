@@ -1,15 +1,19 @@
 import React, { useEffect, useState } from 'react'
 import { NavLink, json } from 'react-router-dom'
 import './MainNavbar.css'
+import UserService from '../services/UserService';
 
 const MainNavbar = () => {
 
-    const[loggedInUser,setLoggedInUser] = useState(null);
+    const [loggedInUser, setLoggedInUser] = useState(UserService.getUser());
 
-    useEffect(()=>{
-        var user = localStorage.getItem("loggedInUser");
-        setLoggedInUser(JSON.stringify(user));
-    },[])
+    useEffect(() => {
+        var user = UserService.getUser();
+        setLoggedInUser(user);
+        console.log(user);
+    }, [])
+
+
 
     return (
         <div>
@@ -41,11 +45,32 @@ const MainNavbar = () => {
                                 </svg>
                             </a>
                             <ul className="dropdown-menu dropdown-menu-end">
-                            <NavLink to="/login">
-                                <li><button className="dropdown-item" type="button">Login / Signup</button></li>
-                            </NavLink>
-                                <li><button className="dropdown-item" type="button">Cart</button></li>
-                                <li><button className="dropdown-item" type="button">Sign Out</button></li>
+                                {
+                                    loggedInUser !== null ?
+
+                                        <>
+                                            <NavLink to="/profile" style={{"textDecoration":"none"}}>
+                                                <li ><button className="dropdown-item" type="button">Show Profile</button></li>
+                                            </NavLink>
+                                            <NavLink to="/signup" style={{"textDecoration":"none"}}>
+                                                <li><button className="dropdown-item" type="button">Cart</button></li>
+                                            </NavLink>
+                                            <li><button className="dropdown-item" type="button">Orders</button></li>
+                                            <li><button className="dropdown-item" type="button" >Sign Out</button></li>
+                                        </>
+
+                                        :
+                                        <>
+                                            <NavLink to="/login" style={{"textDecoration":"none"}}>
+                                                <li><button className="dropdown-item" type="button">Login</button></li>
+                                            </NavLink>
+                                            <NavLink to="/signup" style={{"textDecoration":"none"}}>
+                                                <li><button className="dropdown-item" type="button">Signup</button></li>
+                                            </NavLink>
+                                            <li><button className="dropdown-item" type="button">Cart</button></li>
+                                            <li><button className="dropdown-item" type="button">Sign Out</button></li>
+                                        </>
+                                }
                             </ul>
                         </div>
                     </div>
