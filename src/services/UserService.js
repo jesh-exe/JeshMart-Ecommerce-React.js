@@ -23,10 +23,10 @@ class UserService {
     checkUser(loginUser) {
         console.log(loginUser);
         var signedUpUser = JSON.parse(localStorage.getItem("loggedInUser"));
-        if (signedUpUser === null) {
+        if (signedUpUser === null || loginUser.email != signedUpUser.email) {
             return "User Does Not Exists. Sign Up First!"
         }
-        if (loginUser.email != signedUpUser.email || loginUser.password != signedUpUser.password) {
+        else if (loginUser.password != signedUpUser.password) {
             return "Wrong Creds!";
         }
         console.log("Checked!")

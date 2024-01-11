@@ -1,25 +1,24 @@
 import React from 'react'
 import UserService from '../../services/UserService';
-import { useNavigate } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
+import MainNavbar from '../MainNavbar';
 
-const Login = () => {
+const Login = (props) => {
 
     const navigate = useNavigate();
-
     const handleLogin = (event) => {
         event.preventDefault();
         var loginObj = {
-            email : event.target.email.value,
-            password : event.target.password.value
+            email: event.target.email.value,
+            password: event.target.password.value
         };
         var msg = UserService.checkUser(loginObj);
-        if(msg === "Success")
-        {
+        if (msg === "Success") {
             alert("Logged In Successfully!");
+            props.authenticated();
             navigate("/product")
         }
-        else
-        {
+        else {
             alert(msg);
         }
     }
@@ -39,7 +38,11 @@ const Login = () => {
                         <input type="password" className="form-control lead" id="password" required placeholder="Enter Password" />
                     </div>
                     <p className='text-center'>
-                        <button type="submit" className="btn btn-outline-success">Sign in</button>
+                        <button type="submit" className="btn btn-outline-success me-4">Log in</button>
+                        <NavLink to="/signup" style={{ "textDecoration": "none" }}>
+                            <button type="button" className="btn btn-outline-primary">Sign Up</button>
+                        </NavLink>
+
                     </p>
                 </form>
             </div>

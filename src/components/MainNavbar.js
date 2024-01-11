@@ -5,15 +5,19 @@ import UserService from '../services/UserService';
 
 const MainNavbar = () => {
 
-    const [loggedInUser, setLoggedInUser] = useState(UserService.getUser());
+    const [loggedInUser, setLoggedInUser] = useState(null);
 
     useEffect(() => {
-        var user = UserService.getUser();
-        setLoggedInUser(user);
-        console.log(user);
-    }, [])
+        setLoggedInUser(UserService.getUser());
+    }, [UserService.getUser()])
 
 
+    const handleSignout = () => {
+        if (window.confirm("Sure to Log Out?")) {
+            UserService.signOutUser();
+            setLoggedInUser(UserService.getUser());
+        }
+    }
 
     return (
         <div>
@@ -49,26 +53,22 @@ const MainNavbar = () => {
                                     loggedInUser !== null ?
 
                                         <>
-                                            <NavLink to="/profile" style={{"textDecoration":"none"}}>
+                                            <NavLink to="/profile" style={{ "textDecoration": "none" }}>
                                                 <li ><button className="dropdown-item" type="button">Show Profile</button></li>
                                             </NavLink>
-                                            <NavLink to="/signup" style={{"textDecoration":"none"}}>
-                                                <li><button className="dropdown-item" type="button">Cart</button></li>
-                                            </NavLink>
                                             <li><button className="dropdown-item" type="button">Orders</button></li>
-                                            <li><button className="dropdown-item" type="button" >Sign Out</button></li>
+                                            <li><button className="dropdown-item" type="button">Settings</button></li>
+                                            <li><button className="dropdown-item" type="button" onClick={handleSignout} >Sign Out</button></li>
                                         </>
 
                                         :
                                         <>
-                                            <NavLink to="/login" style={{"textDecoration":"none"}}>
+                                            <NavLink to="/login" style={{ "textDecoration": "none" }}>
                                                 <li><button className="dropdown-item" type="button">Login</button></li>
                                             </NavLink>
-                                            <NavLink to="/signup" style={{"textDecoration":"none"}}>
+                                            <NavLink to="/signup" style={{ "textDecoration": "none" }}>
                                                 <li><button className="dropdown-item" type="button">Signup</button></li>
                                             </NavLink>
-                                            <li><button className="dropdown-item" type="button">Cart</button></li>
-                                            <li><button className="dropdown-item" type="button">Sign Out</button></li>
                                         </>
                                 }
                             </ul>
