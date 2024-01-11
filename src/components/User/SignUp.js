@@ -1,7 +1,9 @@
 import React from 'react'
 import UserService from '../../services/UserService';
+import { useNavigate } from 'react-router-dom';
 
 const SignUp = () => {
+    const navigate = useNavigate();
     const handleSignUp = (event) => {
         event.preventDefault();
         var signUpCreds = {
@@ -11,9 +13,8 @@ const SignUp = () => {
             address : event.target.address.value
         }
         UserService.setUser(signUpCreds);
-        var obj = JSON.parse(localStorage.getItem("loggedInUser"));
-        console.log(obj);
-
+        alert("Signed Up!");
+        navigate("/product")
     }
 
     return (
