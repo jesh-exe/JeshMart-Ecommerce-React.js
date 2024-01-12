@@ -1,6 +1,7 @@
 import React from 'react';
 import ProductService from '../services/ProductService';
 import ProductCard from './ProductCard';
+import './ProductData.css'
 
 class ProductData extends React.Component {
     constructor(props) {
@@ -158,11 +159,11 @@ class ProductData extends React.Component {
         return (
             <>
                 {
-                    this.state.isLoading ? <div className="text-center">
-                        <div className="spinner-border" style={{ width: "3rem", height: "3rem" }} role="status">
-                            <span className="visually-hidden">Loading...</span>
-                        </div>
-                    </div> :
+                    this.state.isLoading ?
+                        <p className="h-100 d-flex justify-content-center">
+                        <p className='loader '></p>
+                        </p>
+                        :
                         <div>
                             <h1 className='display-5 text-center'>Products List</h1>
                             <div className="container border bg-light">
@@ -186,8 +187,8 @@ class ProductData extends React.Component {
                                             <select className="form-select border-dark" name='filterCriteria' onChange={this.handleSelection}>
                                                 <option name='filterCriteria' value="default">Filter By</option>
                                                 {
-                                                        this.state.uniqueItems.map((category, index) => <option key={index} name='filterCriteria' value={category}>{category.charAt(0).toUpperCase() + category.slice(1)}</option>
-                                                        )
+                                                    this.state.uniqueItems.map((category, index) => <option key={index} name='filterCriteria' value={category}>{category.charAt(0).toUpperCase() + category.slice(1)}</option>
+                                                    )
                                                 }
                                             </select>
                                         </div>
