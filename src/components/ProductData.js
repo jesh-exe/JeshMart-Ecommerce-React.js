@@ -184,10 +184,10 @@ class ProductData extends React.Component {
 
                                     <div className='d-flex flex-row'>
                                         <div className="form-outline pe-2" data-mdb-input-init>
-                                            <select className="form-select border-dark" name='filterCriteria' onChange={this.handleSelection}>
+                                            <select className="form-select border-dark" aria-label='filterlabel' name='filterCriteria' onChange={this.handleSelection}>
                                                 <option name='filterCriteria' value="default">Filter By</option>
                                                 {
-                                                    this.state.uniqueItems.map((category, index) => <option key={index} name='filterCriteria' value={category}>{category.charAt(0).toUpperCase() + category.slice(1)}</option>
+                                                    this.state.uniqueItems.map((category, index) => <option key={index+1} name='filterCriteria' value={category}>{category.charAt(0).toUpperCase() + category.slice(1)}</option>
                                                     )
                                                 }
                                             </select>
