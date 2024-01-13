@@ -67,7 +67,7 @@ const ProductDetails = () => {
                   }
                 </div>
                 <div className='col-md-5 d-flex flex-column   ' >
-                  <img className='img-fluid image-container mb-5 ' id='mainImage ' src={isLoading ? "" : product.images[imageIndex]} alt='' ></img>
+                  <img className='img-fluid image-container mb-5 ' id='mainImage ' src={isLoading ? "" : product.images[imageIndex]} style={{aspectRatio:"4.5/3"}} alt='' ></img>
                   <div className='d-flex flex-row flex-wrap justify-content-center'>
                     <button className='btn btn-success btn-lg mb-2 jesh'>Buy Now</button> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <button className='btn btn-warning btn-lg mb-2' >Add to Cart</button>

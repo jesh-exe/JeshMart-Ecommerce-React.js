@@ -2,6 +2,7 @@ import React from 'react';
 import ProductService from '../services/ProductService';
 import ProductCard from './ProductCard';
 import './ProductData.css'
+import Filter from './Filter';
 
 class ProductData extends React.Component {
     constructor(props) {
@@ -166,7 +167,7 @@ class ProductData extends React.Component {
                         :
                         <div>
                             <h1 className='display-5 text-center'>Products List</h1>
-                            <div className="container border bg-light">
+                            <div className="container border bg-white rounded-4">
                                 <div className="input-group mt-3 d-flex flex-row justify-content-between">
                                     <div className='d-flex flex-row'>
                                         <div className="form-outline pe-2" data-mdb-input-init>
@@ -187,7 +188,7 @@ class ProductData extends React.Component {
                                             <select className="form-select border-dark" aria-label='filterlabel' name='filterCriteria' onChange={this.handleSelection}>
                                                 <option name='filterCriteria' value="default">Filter By</option>
                                                 {
-                                                    this.state.uniqueItems.map((category, index) => <option key={index+1} name='filterCriteria' value={category}>{category.charAt(0).toUpperCase() + category.slice(1)}</option>
+                                                    this.state.uniqueItems.map((category, index) => <Filter category={category} index={index} ></Filter>
                                                     )
                                                 }
                                             </select>

@@ -2,6 +2,7 @@ import React from 'react'
 import UserService from '../../services/UserService';
 import { NavLink, useNavigate } from 'react-router-dom';
 import MainNavbar from '../MainNavbar';
+import './Login.css'
 
 const Login = (props) => {
 
@@ -28,7 +29,7 @@ const Login = (props) => {
             <h2 className='text-center p-2 mb-4 display-5'>Login Page</h2>
             <div className='row'>
                 <div className='col-md-3'></div>
-                <form className='ms-1 me-1 col-sm-12 col-md-6 bg-light border border-success p-5 rounded-4' onSubmit={handleLogin}>
+                <form className='ms-1 me-1 col-sm-12 col-md-6 bg-white border border-success p-5 jesh rounded-4' onSubmit={handleLogin}>
                     <div className="form-group mb-4">
                         <label className='ps-1 mb-2 lead' htmlFor="email">Email</label>
                         <input type="email" className="form-control lead" id="email" required placeholder="Enter Email" />

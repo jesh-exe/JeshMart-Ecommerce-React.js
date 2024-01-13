@@ -19,7 +19,7 @@ function App() {
     setLoggedInUser(UserService.getUser());
   }
   return (
-    <div className="App App-header">
+    <div className="App App-header bg-light">
       <MainNavbar loggedInUser={loggedInUser} ></MainNavbar>
       <br></br>
       <br></br>
