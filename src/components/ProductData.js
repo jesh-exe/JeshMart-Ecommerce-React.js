@@ -2,7 +2,6 @@ import React from 'react';
 import ProductService from '../services/ProductService';
 import ProductCard from './ProductCard';
 import './ProductData.css'
-import Filter from './Filter';
 
 class ProductData extends React.Component {
     constructor(props) {
@@ -187,10 +186,17 @@ class ProductData extends React.Component {
                                         <div className="form-outline pe-2" data-mdb-input-init>
                                             <select className="form-select border-dark" aria-label='filterlabel' name='filterCriteria' onChange={this.handleSelection}>
                                                 <option name='filterCriteria' value="default">Filter By</option>
-                                                {
-                                                    this.state.uniqueItems.map((category, index) => <Filter category={category} index={index} ></Filter>
+                                                <option name="filterCriteria" value="smartphones">Smartphones</option>
+                                                <option name="filterCriteria" value="laptops">Laptops</option>
+                                                <option name="filterCriteria" value="fragrances">Fragrances</option>
+                                                <option name="filterCriteria" value="skincare">Skincare</option>
+
+                                                <option name="filterCriteria" value="groceries">Groceries</option>
+                                                <option name="filterCriteria" value="home-decoration">Home-decoration</option>
+                                                {/* {
+                                                    this.state.uniqueItems.map((category, index) => <option key={index+1} name='filterCriteria' value={category}>{category.charAt(0).toUpperCase() + category.slice(1)}</option>
                                                     )
-                                                }
+                                                } */}
                                             </select>
                                         </div>
                                         <div>
