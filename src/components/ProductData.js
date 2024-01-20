@@ -106,8 +106,8 @@ class ProductData extends React.Component {
     }
 
     handleFilter(target) {
-        for (var i = 0; i < this.state.uniqueItems.length; i++) {
-            if (this.state.uniqueItems[i] === target) {
+        for (var i = 0; i < this.state.products.length; i++) {
+            if (this.state.products[i].category.toLowerCase() === target.toLowerCase()) {
                 this.setState({
                     ...this.state,
                     searchProducts: this.state.products.filter((product) => product.category === target)
@@ -184,7 +184,7 @@ class ProductData extends React.Component {
 
                                     <div className='d-flex flex-row'>
                                         <div className="form-outline pe-2" data-mdb-input-init>
-                                            <select className="form-select border-dark" aria-label='filterlabel' name='filterCriteria' onChange={this.handleSelection}>
+                                            <select className="form-select border-dark" name='filterCriteria' onChange={this.handleSelection}>
                                                 <option name='filterCriteria' value="default">Filter By</option>
                                                 <option name="filterCriteria" value="smartphones">Smartphones</option>
                                                 <option name="filterCriteria" value="laptops">Laptops</option>
